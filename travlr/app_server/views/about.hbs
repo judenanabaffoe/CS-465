@@ -1,0 +1,30 @@
+<div id="contents">
+	<div class="box">
+		<div>
+			<div class="body">
+				<h1>About</h1>
+				<h2>{{about.heading}}</h2>
+				{{#each about.intro}}
+				<p>
+					{{this}}
+				</p>
+				{{/each}}
+				<hr>
+				<div class="ads">
+					{{#each about.columns}}
+					<h2>{{heading}}</h2>
+					<p>
+						{{text}}
+					</p>
+					{{/each}}
+				</div>
+				{{#each about.sections}}
+				<h2>{{heading}}</h2>
+				<p>
+					{{text}}
+				</p>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>

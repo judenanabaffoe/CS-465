@@ -1,0 +1,48 @@
+<div id="contents">
+	<div class="box">
+		<div>
+			<div id="contact" class="body">
+				<h1>Contact</h1>
+				{{#if sent}}
+				<p class="notice">Thank you, {{sentName}}. We received your message and will be in touch soon.</p>
+				{{else}}
+				{{#if error}}
+				<p class="notice error">{{error}}</p>
+				{{/if}}
+				<form action="/contact" method="post">
+					<table>
+						<tbody>
+							<tr>
+								<td>Name:</td>
+								<td><input type="text" name="name" value="{{form.name}}" class="txtfield"></td>
+							</tr> <tr>
+								<td>Email:</td>
+								<td><input type="text" name="email" value="{{form.email}}" class="txtfield"></td>
+							</tr> <tr>
+								<td>Subject:</td>
+								<td><input type="text" name="subject" value="{{form.subject}}" class="txtfield"></td>
+							</tr> <tr>
+								<td class="txtarea">Message:</td>
+								<td><textarea name="message">{{form.message}}</textarea></td>
+							</tr> <tr>
+								<td></td>
+								<td><input type="submit" value="" class="btn"></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				{{/if}}
+				<h2>{{brand}}</h2>
+				<p>
+					<span>Address:</span> {{contact.address}}
+				</p>
+				<p>
+					<span>Telephone Number:</span> {{contact.telephone}}
+				</p>
+				<p>
+					<span>Fax Number:</span> {{contact.fax}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "heading": "Travel Made Simple",
+  "intro": [
+    "Travlr Getaways helps travelers find and book beach, cruise and mountain packages in one place. Search our packages by location and price, reserve your trip online, and come back before you leave to review your itinerary.",
+    "Our team keeps every package up to date, from resort details to per-person pricing, so what you see on the site is what you book."
+  ],
+  "columns": [
+    {
+      "heading": "Our Crews",
+      "text": "Local guides and travel advisors who know every destination we offer and are ready to help you plan the details."
+    },
+    {
+      "heading": "Amenities",
+      "text": "Hand-picked resorts and ships, from relaxed three-star stays to five-star escapes, with options for every budget."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Be Part of Our Community",
+      "text": "Share your trip stories and photos with other travelers. Questions or feedback about the site? Send us a note from the Contact page."
+    }
+  ]
+}

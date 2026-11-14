@@ -1,28 +1,31 @@
-const fs = require('fs');
-const path = require('path');
+const data = require('../models/data');
 
-// MODULE 2: trip data is read from a JSON file.
-// A later module replaces this read with a call to the RESTful API / MongoDB.
-const tripsPath = path.join(__dirname, '..', '..', 'data', 'trips.json');
+const dateFmt = new Intl.DateTimeFormat('en-US', {
+  month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC'
+});
+
+// Shape a raw trip record into what the view displays.
+const toViewModel = (trip) => ({
+  ...trip,
+  startDisplay: dateFmt.format(new Date(trip.start)),
+  // 1199.00 -> 1,199.00
+  perPerson: Number(trip.perPerson).toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })
+});
 
 /* GET travel view */
-const travel = (req, res, next) => {
-  fs.readFile(tripsPath, 'utf8', (err, raw) => {
-    if (err) return next(err);
-
-    let trips;
-    try {
-      trips = JSON.parse(raw);
-    } catch (parseErr) {
-      return next(parseErr);
-    }
-
+const travel = async (req, res, next) => {
+  try {
+    const trips = (await data.read('trips')).map(toViewModel);
     res.render('travel', {
       title: 'Travlr Getaways - Travel',
-      active: { travel: true },
       trips
     });
-  });
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports = {

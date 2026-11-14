@@ -5,17 +5,25 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
 
-// MODULE 2: routers now live in app_server/routes (MVC structure)
+// MODULE 3: shared locals (brand, navigation) for every page
+var site = require('./app_server/middleware/site');
+
+// routers live in app_server/routes (MVC structure)
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
+var roomsRouter = require('./app_server/routes/rooms');
+var mealsRouter = require('./app_server/routes/meals');
+var newsRouter = require('./app_server/routes/news');
+var aboutRouter = require('./app_server/routes/about');
+var contactRouter = require('./app_server/routes/contact');
 
 var app = express();
 
-// MODULE 2: view engine setup - views moved to app_server/views
+// view engine setup - views live in app_server/views
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 
-// MODULE 2: register the path for Handlebars partials (header, footer)
+// register the path for Handlebars partials (header, footer, cards)
 hbs.registerPartials(path.join(__dirname, 'app_server', 'views', 'partials'));
 app.set('view engine', 'hbs');
 
@@ -23,14 +31,19 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// MODULE 2: index:false stops express.static from serving public/index.html for '/',
-// so the home route (controller + HBS view) handles it. Other static pages still work.
-app.use(express.static(path.join(__dirname, 'public'), { index: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// MODULE 3: runs for every page request so header/footer partials have their data
+app.use(site);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// MODULE 2: register the new traveler route
 app.use('/travel', travelRouter);
+app.use('/rooms', roomsRouter);
+app.use('/meals', mealsRouter);
+app.use('/news', newsRouter);
+app.use('/about', aboutRouter);
+app.use('/contact', contactRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,7 +58,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { title: 'Travlr Getaways - Error' });
 });
 
 module.exports = app;

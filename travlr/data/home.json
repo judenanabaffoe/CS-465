@@ -1,0 +1,16 @@
+{
+  "adbox": {
+    "image": "sea-sound.jpg",
+    "heading": "Enjoy the Summer with Us!",
+    "text": "Book your next getaway with Travlr Getaways. Browse our beach, cruise and mountain travel packages, then reserve your trip online and check your itinerary before you go."
+  },
+  "testimonial": {
+    "quote": "In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis. Aenean quis elit mauris, nec vestibulum lorem.",
+    "author": "Juan De La Cruz"
+  },
+  "tiles": [
+    { "href": "/rooms", "image": "rooms.png" },
+    { "href": "/travel", "image": "dive-site.png" },
+    { "href": "/meals", "image": "food.png" }
+  ]
+}

@@ -1,0 +1,37 @@
+<div id="contents">
+	<div class="box">
+		<div>
+			<div id="news" class="body">
+				<div class="sidebar">
+					<h3>Latest News</h3>
+					<ul>
+						{{#each latest}}
+						<li>
+							<a href="/news">{{this}}</a>
+						</li>
+						{{/each}}
+					</ul>
+					<h3>Vacation Tips</h3>
+					<ul>
+						{{#each tips}}
+						<li>
+							<a href="/news">{{this}}</a>
+						</li>
+						{{/each}}
+					</ul>
+				</div>
+				<div>
+					<h1>News</h1>
+					<img src="/images/{{featured.image}}" alt="{{featured.title}}">
+					<h2>{{featured.title}}</h2>
+					<span class="time">{{featured.date}}<br> by: {{featured.author}}</span>
+					{{#each featured.paragraphs}}
+					<p>
+						{{this}}
+					</p>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

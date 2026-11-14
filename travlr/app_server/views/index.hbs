@@ -1,9 +1,9 @@
 <div id="contents">
 	<div id="adbox">
-		<img src="/images/sea-sound.jpg" alt="Img">
-		<h1>Enjoy the Summer with Us!</h1>
+		<img src="/images/{{home.adbox.image}}" alt="{{home.adbox.heading}}">
+		<h1>{{home.adbox.heading}}</h1>
 		<p>
-			Book your next getaway with Travlr Getaways. Browse our beach, cruise and mountain travel packages, then reserve your trip online and check your itinerary before you go.
+			{{home.adbox.text}}
 		</p>
 	</div>
 	<div id="main">
@@ -12,20 +12,15 @@
 				<div>
 					<h3>Latest Blog</h3>
 					<ul>
+						{{#each blog}}
 						<li>
-							<h4><a href="/news.html">2023 Best Beaches Contest Winners</a></h4>
-							<span>April 02, 2023</span>
+							<h4><a href="/news">{{title}}</a></h4>
+							<span>{{date}}</span>
 							<p>
-								Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat. Nunc nisi mi, elementum sit amet...
+								{{summary}}
 							</p>
 						</li>
-						<li>
-							<h4><a href="/news.html">Top 10 Diving Spots</a></h4>
-							<span>May 29, 2023</span>
-							<p>
-								Maecenas scelerisque odio quis arcu fringilla malesuada. Nulla facilisi. In libero nulla, fermentum ut pretium ac, pharetra et eros...
-							</p>
-						</li>
+						{{/each}}
 					</ul>
 				</div>
 			</div>
@@ -35,21 +30,17 @@
 				<div>
 					<h3>Testimonials</h3>
 					<p>
-						&ldquo;In hac habitasse platea dictumst. Integer purus justo, egestas eu consectetur eu, cursus in tortor. Quisque nec nunc ac mi ultrices iaculis. Aenean quis elit mauris, nec vestibulum lorem.&rdquo; <span>- <a href="/">Juan De La Cruz</a></span>
+						&ldquo;{{home.testimonial.quote}}&rdquo; <span>- <a href="/">{{home.testimonial.author}}</a></span>
 					</p>
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="sidebar">
+		{{#each home.tiles}}
 		<div class="section">
-			<a href="/rooms.html"><img src="/images/rooms.png" alt="Img"></a>
+			<a href="{{href}}"><img src="/images/{{image}}" alt="{{href}}"></a>
 		</div>
-		<div class="section">
-			<a href="/travel"><img src="/images/dive-site.png" alt="Img"></a>
-		</div>
-		<div class="section">
-			<a href="/meals.html"><img src="/images/food.png" alt="Img"></a>
-		</div>
+		{{/each}}
 	</div>
 </div>

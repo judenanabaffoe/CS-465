@@ -1,0 +1,17 @@
+{
+  "brand": "Travlr Getaways",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Travel", "href": "/travel" },
+    { "label": "Rooms", "href": "/rooms" },
+    { "label": "Meals", "href": "/meals" },
+    { "label": "News", "href": "/news" },
+    { "label": "About", "href": "/about" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "contact": {
+    "address": "123 Lorem Ipsum Cove, Sed Ut City, LI 12345",
+    "telephone": "1-800-999-9999",
+    "fax": "1-800-111-1111"
+  }
+}
