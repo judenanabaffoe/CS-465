@@ -543,3 +543,7 @@ hr {
 #connect a.googleplus:hover {
 	background-position: 0 -197px;
 }
+
+/* Module 3: contact form confirmation / error notice */
+.notice { padding: 10px 15px; margin: 15px 0; background: #e3f4e3; border: 1px solid #8cc58c; color: #245c24; }
+.notice.error { background: #fbe5e5; border-color: #d98a8a; color: #8a1f1f; }
